@@ -12,7 +12,8 @@ public class KeyboardController : NetworkBehaviour {
 
 	const float defaultvel = 1;
 
-	void handleMovement() {
+	[Command]
+	void Cmd_handleMovement() {
 		Vector2 velocity = Vector2.zero;
 
 		if (Input.GetKey (KeyCode.UpArrow)) {
@@ -37,7 +38,6 @@ public class KeyboardController : NetworkBehaviour {
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			print ("RIGHT");
 			velocity += new Vector2 (defaultvel, 0);
-
 		}
 
 		Rigidbody curr = gameObject.GetComponent<Rigidbody>();
@@ -50,6 +50,6 @@ public class KeyboardController : NetworkBehaviour {
 			return;
 		}
 
-		handleMovement();
+		Cmd_handleMovement();
 	}
 }
