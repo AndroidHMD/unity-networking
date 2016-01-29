@@ -12,8 +12,7 @@ public class KeyboardController : NetworkBehaviour {
 
 	const float defaultvel = 1;
 
-	[Command]
-	void Cmd_handleMovement() {
+	void handleMovement() {
 		Vector2 velocity = Vector2.zero;
 
 		if (Input.GetKey (KeyCode.UpArrow)) {
@@ -50,6 +49,6 @@ public class KeyboardController : NetworkBehaviour {
 			return;
 		}
 
-		Cmd_handleMovement();
+		handleMovement();
 	}
 }
