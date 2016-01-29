@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KeyboardController : MonoBehaviour {
+using UnityEngine.Networking;
+
+public class KeyboardController : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,9 +12,7 @@ public class KeyboardController : MonoBehaviour {
 
 	const float defaultvel = 1;
 
-	// Update is called once per frame
-	void Update () {
-	
+	void handleMovement() {
 		Vector2 velocity = Vector2.zero;
 
 		if (Input.GetKey (KeyCode.UpArrow)) {
@@ -42,5 +42,14 @@ public class KeyboardController : MonoBehaviour {
 
 		Rigidbody curr = gameObject.GetComponent<Rigidbody>();
 		curr.velocity = velocity;
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (!isLocalPlayer) {
+			return;
+		}
+
+		handleMovement();
 	}
 }
