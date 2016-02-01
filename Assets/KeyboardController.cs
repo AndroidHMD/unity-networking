@@ -13,30 +13,30 @@ public class KeyboardController : NetworkBehaviour {
 	const float defaultvel = 1;
 
 	void handleMovement() {
-		Vector2 velocity = Vector2.zero;
+		Vector3 velocity = Vector3.zero;
 
 		if (Input.GetKey (KeyCode.UpArrow)) {
 			print ("UPPP");
 
-			velocity += new Vector2 (0, defaultvel);
+			velocity += new Vector3 (0, 0, defaultvel);
 
 		}
 
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			print ("DOWWN");
 
-			velocity -= new Vector2 (0, defaultvel);
+			velocity -= new Vector3 (0, 0, defaultvel);
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			print ("LEFT");
-			velocity -= new Vector2 (defaultvel, 0);
+			velocity -= new Vector3 (defaultvel, 0, 0);
 
 		}
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			print ("RIGHT");
-			velocity += new Vector2 (defaultvel, 0);
+			velocity += new Vector3 (defaultvel, 0, 0);
 		}
 
 		Rigidbody curr = gameObject.GetComponent<Rigidbody>();
